@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Blog{% endblock %}
+{% block context %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h3 class="blog-post-title-right">
+          <p class="text-center">{{ article.article_title }}</p>
+        </h3>
+        <p class="text-right">{{ article.article_create_time }}</p>
+        <hr />
+        <h5 class="blog-post-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;摘要：{{ article.article_abstract }}</h5>
+        <br/>
+        <div class="post-bd">
+          <!-- safe 将django的html自动转义关闭 -->
+          {{ article.article_text |safe }}
+        </div>
+        <hr />
+        {% include 'blog/comment.html' %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
