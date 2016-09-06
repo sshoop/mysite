@@ -52,7 +52,7 @@ class ArticleDetailView(DetailView):
     def get_object(self):
         obj = super(ArticleDetailView, self).get_object()
         # 将正文转化为html文本 便于在网页上显示
-        obj.article_text = markdown2.markdown(obj.article_text, extras=['fenced-code-blocks', 'codehilite'])
+        obj.article_text = markdown2.markdown(obj.article_text, extras=['fenced-code-blocks'])
         return obj
 
     def get_context_data(self, **kwargs):

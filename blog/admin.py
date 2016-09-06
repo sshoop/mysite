@@ -48,14 +48,6 @@ class ArticleAdmin(admin.ModelAdmin):
 
     actions = ['make_index', 'make_not_index', 'make_published', 'make_draft']
 
-    class Media:
-        # 在管理后台的HTML文件中加入js文件, 每一个路径都会追加STATIC_URL/
-        js = (
-            '/static/js/kindeditor-all.js',
-            '/static/js/kindeditor.js',
-            '/static/js/config.js',
-        )
-
 
 class CategoryAdmin(admin.ModelAdmin):
     pass
