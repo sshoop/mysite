@@ -1,0 +1,11 @@
+        <form method="post" action="{% url 'blog:comment' article.pk %}">
+            {% csrf_token %}
+            <div class="row">
+                {% for field in form %}
+                    {{ field }}
+                    {{ field.errors }}
+                    <br>
+                {% endfor %}
+            </div>
+            <button type="submit" class="com-button">评论</button>
+        </form>

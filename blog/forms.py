@@ -12,7 +12,7 @@ class CommentForm(forms.ModelForm):
                 'size': 105,
                 'class': 'form_control',
                 'placeholder': '昵称',
-                'aria-describedby': 'sizing-addonl',
+                'aria_describedby': 'sizing-addonl',
 
             }),
             'comment_text': forms.TextInput(attrs={

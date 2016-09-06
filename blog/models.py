@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 
 class Category(models.Model):
     category_name = models.CharField(u'类名', max_length=20)
-    category_create_name = models.DateTimeField(u'创建时间', auto_now_add=True)
+    category_create_time = models.DateTimeField(u'创建时间', auto_now_add=True)
     category_change_time = models.DateTimeField(u'修改时间', auto_now=True)
 
     def __str__(self):
@@ -27,11 +27,11 @@ class Article(models.Model):
     article_create_time = models.DateTimeField(u'创建时间', auto_now_add=True)
     article_change_time = models.DateTimeField(u'修改时间', auto_now=True)
     article_status = models.CharField('文章状态', max_length=1, choices=STATUS_CHOICES)
-    article_top = models.BooleanField(u'草稿', default=False)
     article_index = models.BooleanField(u'首页', default=False)
     article_views = models.PositiveIntegerField(u'浏览量', default=0)
     article_likes = models.PositiveIntegerField(u'点赞数', default=0)
-    article_category = models.ForeignKey(Category)
+    article_category = models.ForeignKey('Category', verbose_name='分类')
+    article_tag = models.ManyToManyField('Tag', verbose_name='标签', blank=True,)
 
     def __str__(self):
         return self.article_title
@@ -49,6 +49,14 @@ class Comment(models.Model):
     def __str__(self):
         return self.comment_text[:20]
 
+
+class Tag(models.Model):
+    tag_name = models.CharField(u'标签名', max_length=20)
+    tag_create_time = models.DateTimeField(u'创建时间', auto_now_add=True)
+    tag_change_time = models.DateTimeField(u'修改时间', auto_now=True)
+
+    def __str__(self):
+        return self.tag_name
 
 
 

@@ -30,7 +30,20 @@
             {% endblock %}
 
         </div>
+        <!--
+        <div class="col-md-4">
+            {% block tag %}
+                <h3>标签:</h3>
+                <div class="list-group">
+                    {% for tag in tag_list %}
+                        <a href="{% url 'blog:tag' tag.pk %}" class="list-group-item"><span
+                                class="badge"></span>{{ tag.tag_name }}</a>
+                    {% endfor %}
 
+            {% endblock %}
+
+        </div>
+        -->
     </div>
 </div>
 
