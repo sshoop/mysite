@@ -13,7 +13,7 @@
 
   <body>
     <div class="container">
-      <div class="header clearfix">
+      <div class="header ">
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href="{% url 'home' %}">Home</a></li>
@@ -35,5 +35,9 @@
     </div> <!-- /container -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>  -->
+      {% block footer %}
+
+
+      {% endblock %}
   </body>
 </html>

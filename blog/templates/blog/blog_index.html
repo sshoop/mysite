@@ -6,17 +6,15 @@
 <div class="container">
     <div class="row">
 
-
         <div class="col-md-8">
             <ol class="breadcrumb">
                 分类：{% for category in category_list %}
                     <li><a href="{% url 'blog:category' category.id %}">{{ category.category_name }}</a></li>
                 {% endfor %}
             </ol>
-            <br />
-            {% block article %}
 
-            {% for article in article_list %}
+            {% block article %}
+                {% for article in article_list %}
                     <h3 class="blog-post-title">{{ article.article_title }}</h3>
                     <p class="text-left">{{ article.article_create_time }}</p>
                     <h4 class="blog-post-title">{{ article.article_abstract }}</h4>
@@ -25,28 +23,26 @@
                         <p class="text-right">继续阅读>></p>
                     </a>
                     <hr />
-            {% endfor %}
-
+                {% endfor %}
             {% endblock %}
-
         </div>
-        <!--
+
         <div class="col-md-4">
             {% block tag %}
-                <h3>标签:</h3>
-                <div class="list-group">
+                <br /> <br />
+                <h4>Tags:</h4>
+                <ul class="nav nav-pills" role="tablist">
                     {% for tag in tag_list %}
-                        <a href="{% url 'blog:tag' tag.pk %}" class="list-group-item"><span
-                                class="badge"></span>{{ tag.tag_name }}</a>
+                        <li role="presentation">
+                            <a href="{% url 'blog:tag' tag.pk %}">{{ tag.tag_name }}</a>
+                        </li>
                     {% endfor %}
-
+                </ul>
+                <br />
+                <hr />
             {% endblock %}
-
         </div>
-        -->
     </div>
 </div>
-
-
 
 {% endblock %}
