@@ -17,7 +17,7 @@
                 {% for article in article_list %}
                     <h3 class="blog-post-title">{{ article.article_title }}</h3>
                     <p class="text-left">{{ article.article_create_time }}</p>
-                    <h5 class="blog-post-title">{{ article.article_abstract }}</h5>
+                    <h5 class="blog-post-title">{{ article.article_abstract |safe }}</h5>
                     <br/>
                     <a href="{% url 'blog:detail' article.pk %}">
                         <p class="text-right">继续阅读>></p>

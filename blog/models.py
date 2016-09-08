@@ -22,8 +22,8 @@ class Article(models.Model):
     )
 
     article_title = models.CharField(u'标题', max_length=50)
-    article_text = models.TextField(u'正文')
-    article_abstract = models.CharField(u'摘要', max_length=54, blank=True, null=True, help_text='可选 若为空则摘取前54个字符')
+    article_text = models.TextField(u'正文', help_text='支持MarkDown语法')
+    article_abstract = models.TextField(u'摘要', help_text='支持MarkDown语法')
     article_create_time = models.DateTimeField(u'创建时间', auto_now_add=True)
     article_change_time = models.DateTimeField(u'修改时间', auto_now=True)
     article_status = models.CharField('文章状态', max_length=1, choices=STATUS_CHOICES)
