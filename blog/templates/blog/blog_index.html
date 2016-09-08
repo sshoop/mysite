@@ -2,6 +2,10 @@
 {% block title %}Blog{% endblock %}
 {% block context %}
 
+<style type="text/css">
+h3.thick {font-weight: bold}
+</style>
+
 <!-- 展示博客首页文章 -->
 <div class="container">
     <div class="row">
@@ -15,10 +19,11 @@
 
             {% block article %}
                 {% for article in article_list %}
-                    <h3 class="blog-post-title">{{ article.article_title }}</h3>
+                    <h3 class="thick">{{ article.article_title }}</h3>
                     <p class="text-left">{{ article.article_create_time }}</p>
-                    <h5 class="blog-post-title">{{ article.article_abstract |safe }}</h5>
                     <br/>
+                    <h5 class="blog-post-title">{{ article.article_abstract |safe }}</h5>
+
                     <a href="{% url 'blog:detail' article.pk %}">
                         <p class="text-right">继续阅读>></p>
                     </a>

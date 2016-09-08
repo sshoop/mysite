@@ -8,6 +8,8 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/colorful.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/font-awesome.min.css' %}">
+    <script src="https://use.fontawesome.com/c46c4d0945.js"></script>
 
   </head>
 
@@ -27,17 +29,10 @@
       {% block context %}
 
       {% endblock %}
-      <!--
-      <footer class="footer footer-fixed-bottom">
-        <p>&copy; Company 2014</p>
-      </footer>
-      -->
-    </div> <!-- /container -->
+
+    </div>
+    <!-- /container -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>  -->
-      {% block footer %}
-
-
-      {% endblock %}
   </body>
 </html>
