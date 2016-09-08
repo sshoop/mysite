@@ -17,7 +17,7 @@
                 {% for article in article_list %}
                     <h3 class="blog-post-title">{{ article.article_title }}</h3>
                     <p class="text-left">{{ article.article_create_time }}</p>
-                    <h4 class="blog-post-title">{{ article.article_abstract }}</h4>
+                    <h5 class="blog-post-title">{{ article.article_abstract }}</h5>
                     <br/>
                     <a href="{% url 'blog:detail' article.pk %}">
                         <p class="text-right">继续阅读>></p>
@@ -30,7 +30,8 @@
         <div class="col-md-4">
             {% block tag %}
                 <br /> <br />
-                <h4>Tags:</h4>
+                <span class="label label-danger">Feature Tags:</span>
+
                 <ul class="nav nav-pills" role="tablist">
                     {% for tag in tag_list %}
                         <li role="presentation">
