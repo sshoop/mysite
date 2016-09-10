@@ -11,16 +11,22 @@ h3.thick {font-weight: bold}
     <div class="row">
 
         <div class="col-md-8">
+            <!--
             <ol class="breadcrumb">
-                分类：{% for category in category_list %}
+                {% for category in category_list %}
                     <li><a href="{% url 'blog:category' category.id %}">{{ category.category_name }}</a></li>
                 {% endfor %}
             </ol>
-
+            -->
             {% block article %}
                 {% for article in article_list %}
                     <h3 class="thick">{{ article.article_title }}</h3>
-                    <p class="text-left">{{ article.article_create_time }}</p>
+                    <p class="text-left">
+                        {{ article.article_create_time.year}}年
+                        {{ article.article_create_time.month}}月
+                        {{ article.article_create_time.day}}日
+                        &nbsp;&nbsp;&nbsp;&nbsp;分类：<a href="{% url 'blog:category' article.article_category.id %}">{{ article.article_category }}</a>
+                    </p>
                     <br/>
                     <h5 class="blog-post-title">{{ article.article_abstract |safe }}</h5>
 
@@ -34,7 +40,6 @@ h3.thick {font-weight: bold}
 
         <div class="col-md-4">
             {% block tag %}
-                <br /> <br />
                 <span class="label label-danger">Feature Tags:</span>
 
                 <ul class="nav nav-pills" role="tablist">
