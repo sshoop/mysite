@@ -117,6 +117,10 @@ class TagView(ListView):
         return super(TagView, self).get_context_data(**kwargs)
 
 
+def QianView(request):
+
+    return render(request, 'qianqian.html')
+
 
 
 
