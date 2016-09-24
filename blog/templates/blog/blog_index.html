@@ -39,9 +39,11 @@ h3.thick {font-weight: bold}
         </div>
 
         <div class="col-md-4">
-            {% block tag %}
-                <span class="label label-danger">Feature Tags:</span>
-
+            {% if tag_list %}
+            <div class="row">
+                {% block tag %}
+                <span class="label label-info">Feature Tags:</span>
+                <br/><br/>
                 <ul class="nav nav-pills" role="tablist">
                     {% for tag in tag_list %}
                         <li role="presentation">
@@ -51,7 +53,23 @@ h3.thick {font-weight: bold}
                 </ul>
                 <br />
                 <hr />
-            {% endblock %}
+                {% endblock %}
+            </div>
+            {% endif %}
+
+            {% if date_archive %}
+            <div class="row">
+                <span class="label label-danger">Time Archive:</span>
+                <br/><br/>
+                <div class="list-group">
+                    {% for year,months in date_archive %}
+                        {% for month in months %}
+                        <a href="{% url 'blog:archive' year month %}" class="list-group-item">{{ year }} 年{{ month }} 月</a>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
