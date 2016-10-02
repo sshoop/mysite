@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}Blog{% endblock %}
 {% block context %}
-
+{% load staticfiles %}
 <style type="text/css">
 h3.thick {font-weight: bold}
+h5 {color: gray }
+h6 {color: gray }
+p {color: gray }
+a:link { text-decoration: none;}
+a:link {color: gray} /* 未访问的链接 */
+a:visited {color: gray} /* 已访问的链接 */
+a:hover {color: black}
 </style>
 
 <!-- 展示博客首页文章 -->
@@ -28,10 +35,10 @@ h3.thick {font-weight: bold}
                         &nbsp;&nbsp;&nbsp;&nbsp;分类：<a href="{% url 'blog:category' article.article_category.id %}">{{ article.article_category }}</a>
                     </p>
                     <br/>
-                    <h5 class="blog-post-title">{{ article.article_abstract |safe }}</h5>
+                    <h5 class="blog-post-title" >{{ article.article_abstract |safe }}</h5>
 
                     <a href="{% url 'blog:detail' article.pk %}">
-                        <p class="text-right">继续阅读>></p>
+                        <p class="text-right">Read More>></p>
                     </a>
                     <hr />
                 {% endfor %}
@@ -39,6 +46,8 @@ h3.thick {font-weight: bold}
         </div>
 
         <div class="col-md-4">
+
+
             {% if tag_list %}
             <div class="row">
                 {% block tag %}
@@ -51,25 +60,92 @@ h3.thick {font-weight: bold}
                         </li>
                     {% endfor %}
                 </ul>
-                <br />
+                <br /><br />
                 <hr />
                 {% endblock %}
             </div>
             {% endif %}
 
+
+            <h5>About Me</h5>
+            <br />
+            <img src="{% static 'blog/images/me.jpg' %}" class="img-rounded" alt="Home" width="150" height="150">
+            <h6>尘世中迷途的小码农</h6>
+            <h6>我想和这个世界谈谈</h6>
+
+                    <ul class="list-inline">
+                        <li>
+                            <a target="_blank" href="https://www.zhihu.com/people/mo-ban-che-46">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa  fa-stack-1x fa-inverse">知</i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a target="_blank" href="http://weibo.com/sshoop">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a target="_blank" href="http://weibo.com/sshoop">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a target="_blank" href="https://github.com/sshoop">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+            <br /><br />
+
+
             {% if date_archive %}
             <div class="row">
                 <span class="label label-danger">Time Archive:</span>
                 <br/><br/>
-                <div class="list-group">
+
                     {% for year,months in date_archive %}
                         {% for month in months %}
-                        <a href="{% url 'blog:archive' year month %}" class="list-group-item">{{ year }} 年{{ month }} 月</a>
+                        <div class="col-md-4">
+                            <a href="{% url 'blog:archive' year month %}" >{{ year }} 年{{ month }} 月</a>
+                        </div>
+
                         {% endfor %}
                     {% endfor %}
-                </div>
+
             </div>
             {% endif %}
+
+            {% if SearchForm %}
+            <br /><br /><br /><br />
+            <div class="row">
+                <form method="get" action="{% url 'blog:search' %}">
+
+                    {{ SearchForm }}
+                    <br /><br /><br /><br /><br />
+                    <!--
+                    <p class="text-right">
+                    <button type="submit" class="btn btn-primary">评论</button>
+                    </p>
+                    -->
+                </form>
+            </div>
+            {% endif %}
+
         </div>
     </div>
 </div>

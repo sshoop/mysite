@@ -5,6 +5,10 @@
 
 <style type="text/css">
 h3 {text-decoration: underline;text-align: center}
+a:link { text-decoration: none;}
+a:link {color: black} /* 未访问的链接 */
+a:visited {color: black} /* 已访问的链接 */
+a:hover {color: gray}
 </style>
 
   <div class="row">
@@ -22,24 +26,54 @@ h3 {text-decoration: underline;text-align: center}
             <p class="lead">
               <a href="{% url 'blog:index' %}" class="btn btn-lg btn-default">Learn more</a>
             </p>
-          </div>
-      <br/> <br/><br/> <br/><br/> <br/>
+       </div>
+      <br/> <br/><br/> <br/><br/>
       <!--
       <P>
         <h3 class="text-center">Contact Me</h3>
       </P>
       -->
+      <footer>
 
-      <p>
-        <a class="fa fa-github fa-2x" href="https://github.com/sshoop" aria-hidden="true"></a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="fa fa-weibo fa-2x" href="http://weibo.com/sshoop" aria-hidden="true"></a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="fa fa-weixin fa-2x" href="http://weibo.com/sshoop" aria-hidden="true"></a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="fa fa-facebook fa-2x" href="#" aria-hidden="true"></a>
-      </p>
+                <ul class="list-inline ">
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/mo-ban-che-46">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
 
+                    <li>
+                        <a target="_blank" href="http://weibo.com/sshoop">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank" href="http://weibo.com/sshoop">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank" href="https://github.com/sshoop">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+      </footer>
     </div>
 
     <div class="col-md-4"></div>

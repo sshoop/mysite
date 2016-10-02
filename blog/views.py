@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .models import Article, Category, Tag
 from django.views.generic import ListView, DetailView, FormView
-from .forms import CommentForm
+from .forms import CommentForm, SearchForm
 import markdown2
 # Create your views here.
 
@@ -26,10 +26,10 @@ class IndexView(ListView):
     def get_queryset(self):
         # 获取数据库中非草稿的数据
         article_list = Article.objects.filter(article_index='True', article_status='p').order_by('-article_change_time')
-        '''
+
         for article in article_list:
-            article.article_title = markdown2.markdown(article.article_title)
-        '''
+            article.article_abstract = markdown2.markdown(article.article_abstract)
+
         return article_list
 
     def get_context_data(self, **kwargs):
@@ -37,7 +37,7 @@ class IndexView(ListView):
         kwargs['category_list'] = Category.objects.all().order_by('category_name')
         kwargs['tag_list'] = Tag.objects.all().order_by('tag_name')
         kwargs['date_archive'] = Article.objects.archive()
-        # kwargs['span_list'] = ['default', 'primary', 'success', 'info', 'warning', 'danger']
+        kwargs['SearchForm'] = SearchForm()
         return super(IndexView, self).get_context_data(**kwargs)
 
 
@@ -136,6 +136,12 @@ class ArchiveView(ListView):
         kwargs['date_archive'] = Article.objects.archive()
         # kwargs['span_list'] = ['default', 'primary', 'success', 'info', 'warning', 'danger']
         return super(ArchiveView, self).get_context_data(**kwargs)
+
+
+def SearchView(request):
+    search_name = request.GET['search_name']
+    article_list = Article.objects.filter(article_title__contains=search_name)
+    return render(request, 'blog/blog_index.html', {'article_list': article_list})
 
 
 def QianView(request):
