@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{% static 'blog/css/colorful.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/font-awesome.min.css' %}">
     <script src="https://use.fontawesome.com/c46c4d0945.js"></script>
-
   </head>
 
   <body>
@@ -19,9 +18,9 @@
       <div class="header ">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="{% url 'home' %}">Home</a></li>
-            <li role="presentation"><a href="{% url 'blog:index' %}">Blog</a></li>
-            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="{% url 'home' %}" class="home">Home</a></li>
+            <li role="presentation"><a href="{% url 'blog:index' %}" class="home">Blog</a></li>
+            <li role="presentation"><a href="#" class="home">About</a></li>
           </ul>
         </nav>
         <h2 class="text-muted">sshoop</h2>
