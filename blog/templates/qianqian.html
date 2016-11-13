@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/colorful.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/font-awesome.min.css' %}">
+    <script src="https://use.fontawesome.com/c46c4d0945.js"></script>
+    <style type="text/css">    
+     .container {
+	margin-top: 40px;
+     }  
+   </style>
+  </head>
+
+  <body>
+
+   <div class="container">
+       <div class="row">
+           <div class="col-xs-4 col-md-4">
+               <img src="{% static 'blog/images/1.jpg' %}" class="img-rounded" width="200" height="200">
+           </div>
+           <div class="col-xs-4 col-md-4">
+               <img src="{% static 'blog/images/2.jpg' %}" class="img-rounded" width="200" height="200">
+           </div>
+           <div class="col-xs-4 col-md-4">
+               <img src="{% static 'blog/images/3.jpg' %}" class="img-rounded" width="200" height="200">
+           </div>
+       </div>
+
+       <div class="row">
+           <div class="col-xs-4 col-md-4">
+               <img src="{% static 'blog/images/4.jpg' %}" class="img-rounded" width="200" height="200">
+           </div>
+           <div class="col-xs-4 col-md-4">
+               <img src="{% static 'blog/images/5.png' %}" class="img-rounded" width="200" height="200">
+           </div>
+           <div class="col-xs-4 col-md-4">
+               <img src="{% static 'blog/images/6.jpg' %}" class="img-rounded" width="200" height="200">
+           </div>
+       </div>
+
+       <div class="row">
+           <div class="col-xs-4 col-md-4">
+               <img src="{% static 'blog/images/7.jpg' %}" class="img-rounded" width="200" height="200">
+           </div>
+           <div class="col-xs-4 col-md-4">
+               <img src="{% static 'blog/images/8.jpg' %}" class="img-rounded" width="200" height="200">
+           </div>
+           <div class="col-xs-4 col-md-4">
+               <img src="{% static 'blog/images/9.jpg' %}" class="img-rounded" width="200" height="200">
+           </div>
+       </div>
+   </div>
+  </body>
+</html>

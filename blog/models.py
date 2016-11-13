@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+import collections
 # Create your models here.
 
 
@@ -15,7 +16,18 @@ class Category(models.Model):
         return self.category_name
 
 
+class ArticleManger(models.Manager):
+
+    def archive(self):
+        date_list = Article.objects.datetimes('article_create_time', 'month', order='DESC')
+        date_dict = collections.defaultdict(list)
+        for d in date_list:
+            date_dict[d.year].append(d.month)
+        return sorted(date_dict.items(), reverse=True)
+
+
 class Article(models.Model):
+    objects = ArticleManger()
     STATUS_CHOICES = (
         ('d', '草稿'),
         ('p', '发布'),

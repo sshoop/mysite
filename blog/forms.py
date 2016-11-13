@@ -22,3 +22,22 @@ class CommentForm(forms.ModelForm):
             }),
         }
 
+
+class SearchForm(forms.Form):
+    search_name = forms.CharField(
+        label='查询文章',
+        max_length=50,
+        error_messages={
+            'required': '请输入文章名字',
+            'min_length': u'不能少于5个字',
+        },
+        widget=forms.TextInput(
+            attrs={
+                'size': '40',
+                'placeholder': 'search name',
+                'class': 'form-control',
+                'id': "inputPassword",
+            }
+        )
+    )
+
