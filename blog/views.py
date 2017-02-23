@@ -144,9 +144,6 @@ def SearchView(request):
     return render(request, 'blog/blog_index.html', {'article_list': article_list})
 
 
-def QianView(request):
-
-    return render(request, 'qianqian.html')
 
 
 
