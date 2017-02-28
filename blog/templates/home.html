@@ -10,32 +10,36 @@ a:link {color: black} /* 未访问的链接 */
 a:visited {color: black} /* 已访问的链接 */
 a:hover {color: gray}
 </style>
+<link href='//cdn.webfont.youziku.com/webfonts/nomal/98989/46758/58b26355f629d810d49c7cb3.css' rel='stylesheet' type='text/css' />
 
+<div class="container">
   <div class="row">
-    <div class="col-md-4"></div>
 
-    <div class="col-md-4">
-      <img src="{% static 'blog/images/rr.jpg' %}" class="img-rounded" alt="Home" width="250" height="250">
-      <br/> <br/>
-       <div class="inner cover">
-            <h1 class="cover-heading">Hello World!</h1>
-            <p class="lead">
-              My name is sshoop, a college student studying in Yangzhou University. And I'm majoring in CS.
-              The purpose of creating blog is to record some of the programming problems I have met.
-            </p>
-            <p class="lead">
-              <a href="{% url 'blog:index' %}" class="btn btn-lg btn-default">Learn more</a>
-            </p>
+    <div class="col-md-8">
+      <div class="col-md-8 col-md-offset-3">
+        <img src="{% static 'blog/images/d.png' %}" class="img-rounded" alt="Home" width="330" height="330">
+          <br /><br />
+        <div class="css91dfd4ce6182ad">
+            <h4>
+                print "Hello World"
+            </h4>
+            <h4>
+                printf("Hello World\n");
+            </h4>
+            <h4>
+                cout<<"Hello World"<< endl;
+            </h4>
+            <h4>
+                System.out.println("Hello World");
+            </h4>
+        </div>
        </div>
-      <br/> <br/><br/> <br/><br/>
-      <!--
-      <P>
-        <h3 class="text-center">Contact Me</h3>
-      </P>
-      -->
-      <footer>
 
-                <ul class="list-inline ">
+    <footer>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-3 ">
+
+                <ul class="list-inline ">&nbsp;&nbsp;
                     <li>
                         <a target="_blank" href="https://www.zhihu.com/people/mo-ban-che-46">
                             <span class="fa-stack fa-lg">
@@ -72,11 +76,14 @@ a:hover {color: gray}
                         </a>
                     </li>
                 </ul>
+                </div>
+            </div>
+    </footer>
 
-      </footer>
-    </div>
-
-    <div class="col-md-4"></div>
   </div>
+
+ </div>
+</div>
+
 {% endblock %}
 

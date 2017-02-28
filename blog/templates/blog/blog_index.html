@@ -7,21 +7,16 @@ h3.thick {font-weight: bold}
 h5 {color: gray }
 h6 {color: gray }
 p.data {color: gray }
-a:link { text-decoration: none;}
-a.sns:link {color: gray} /* 未访问的链接 */
-a.sns:visited {color: gray} /* 已访问的链接 */
-a.sns:hover {color: black}
-
-
-    a.home:link {color: black} /* 未访问的链接 */
-    a.home:visited {color: black} /* 已访问的链接 */
-    a.home:hover {color: gray}
-
+a.test:link {color:  #1874CD} /* 未访问的链接 */
+a.test:visited {color:  #1874CD} /* 已访问的链接 */
+a.test:hover {color: gray}
 </style>
 
 <!-- 展示博客首页文章 -->
 <div class="container">
     <div class="row">
+
+
 
         <div class="col-md-8">
             <!--
@@ -35,15 +30,15 @@ a.sns:hover {color: black}
                 {% for article in article_list %}
                     <h3 class="thick">{{ article.article_title }}</h3>
                     <p  class="data">
-                        {{ article.article_create_time.year}}年
-                        {{ article.article_create_time.month}}月
-                        {{ article.article_create_time.day}}日
-                        &nbsp;&nbsp;&nbsp;&nbsp;分类：<a href="{% url 'blog:category' article.article_category.id %}">{{ article.article_category }}</a>
+                        {{ article.article_change_time.year}}年
+                        {{ article.article_change_time.month}}月
+                        {{ article.article_change_time.day}}日
+                        &nbsp;&nbsp;&nbsp;&nbsp;分类：<a class="test" href="{% url 'blog:category' article.article_category.id %}">{{ article.article_category }}</a>
                     </p>
                     <br/>
                     <h5 class="blog-post-title" >{{ article.article_abstract |safe }}</h5>
 
-                    <a href="{% url 'blog:detail' article.pk %}">
+                    <a class="test" href="{% url 'blog:detail' article.pk %}">
                         <p class="text-right">Read More>></p>
                     </a>
                     <hr />
@@ -51,6 +46,9 @@ a.sns:hover {color: black}
             {% endblock %}
         </div>
 
+
+
+        <!--
         <div class="col-md-4">
 
 
@@ -127,7 +125,7 @@ a.sns:hover {color: black}
                     {% for year,months in date_archive %}
                         {% for month in months %}
                         <div class="col-md-4">
-                            <a href="{% url 'blog:archive' year month %}" class="sns">{{ year }} 年{{ month }} 月</a>
+                            <a href="{% url 'blog:date' year month %}" class="sns">{{ year }} 年{{ month }} 月</a>
                         </div>
 
                         {% endfor %}
@@ -143,16 +141,15 @@ a.sns:hover {color: black}
 
                     {{ SearchForm }}
                     <br /><br /><br /><br /><br />
-                    <!--
                     <p class="text-right">
                     <button type="submit" class="btn btn-primary">评论</button>
                     </p>
-                    -->
+
                 </form>
             </div>
             {% endif %}
-
         </div>
+        -->
     </div>
 </div>
 

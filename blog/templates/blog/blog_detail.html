@@ -1,13 +1,30 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+{% load tz %}
 {% block title %}Blog{% endblock %}
 {% block context %}
+
+<style type="text/css">
+a:link { text-decoration: none;}
+a:link {color: black} /* 未访问的链接 */
+a:visited {color: black} /* 已访问的链接 */
+a:hover {color: gray}
+</style>
+
+<link rel="stylesheet" href="{% static 'blog/css/github-markdown.css' %}">
+<article class="markdown-body">
   <div class="container">
     <div class="row">
+
       <div class="col-md-8">
         <h3 class="blog-post-title-right">
           <p class="text-center">{{ article.article_title }}</p>
         </h3>
-        <p class="text-right">{{ article.article_create_time }}</p>
+        <p class="text-right">
+
+             {{ article.article_create_time }}
+
+        </p>
         <hr />
         <br/>
         <div class="post-bd">
@@ -21,11 +38,9 @@
         <div id="uyan_frame"></div>
         <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2114747"></script>
         <!-- UY END -->
-
-
-
       </div>
     </div>
   </div>
+</article>
 
 {% endblock %}

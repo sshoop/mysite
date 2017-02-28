@@ -5,6 +5,7 @@ from .models import Article, Category, Tag
 from django.views.generic import ListView, DetailView, FormView
 from .forms import CommentForm, SearchForm
 import markdown2
+
 # Create your views here.
 
 
@@ -63,6 +64,30 @@ class ArticleDetailView(DetailView):
         return super(ArticleDetailView, self).get_context_data(**kwargs)
 
 
+class ArchiveView(ListView):
+    """
+        博客Archive视图 以时间先后顺序展示文章列表  继承ListView
+    """
+    template_name = 'blog/blog_archive.html'
+    context_object_name = 'article_list'
+
+    def get_queryset(self):
+        # 获取数据库中非草稿的数据
+        article_list = Article.objects.all().order_by('-article_create_time')
+        """for article in article_list:
+            if article.article_change_time.month < 10:
+                article.article_change_time.month = """
+        return article_list
+
+    def get_context_data(self, **kwargs):
+        # 增加额外的数据，返回一个文章分类，以字典的形式
+        kwargs['category_list'] = Category.objects.all().order_by('category_name')
+        kwargs['tag_list'] = Tag.objects.all().order_by('tag_name')
+        kwargs['date_archive'] = Article.objects.archive()
+        kwargs['SearchForm'] = SearchForm()
+        return super(ArchiveView, self).get_context_data(**kwargs)
+
+
 class CategoryView(ListView):
     template_name = 'blog/blog_index.html'
     context_object_name = 'article_list'
@@ -119,7 +144,7 @@ class TagView(ListView):
         return super(TagView, self).get_context_data(**kwargs)
 
 
-class ArchiveView(ListView):
+class DateView(ListView):
     template_name = 'blog/blog_index.html'
     context_object_name = 'article_list'
 
@@ -135,7 +160,7 @@ class ArchiveView(ListView):
         # kwargs['tag_list'] = Tag.objects.all().order_by('tag_name')
         kwargs['date_archive'] = Article.objects.archive()
         # kwargs['span_list'] = ['default', 'primary', 'success', 'info', 'warning', 'danger']
-        return super(ArchiveView, self).get_context_data(**kwargs)
+        return super(DateView, self).get_context_data(**kwargs)
 
 
 def SearchView(request):
@@ -144,7 +169,13 @@ def SearchView(request):
     return render(request, 'blog/blog_index.html', {'article_list': article_list})
 
 
-
+def AboutView(request):
+    """
+        AoutMe（简历）视图
+    :param request:
+    :return:
+    """
+    return render(request, 'about.html')
 
 
 

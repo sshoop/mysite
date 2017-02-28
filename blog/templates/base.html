@@ -3,36 +3,62 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %}</title>	
+    <title>{% block title %}{% endblock %}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/colorful.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/font-awesome.min.css' %}">
-    <script src="https://use.fontawesome.com/c46c4d0945.js"></script>
+    <link href='//cdn.webfont.youziku.com/webfonts/nomal/98989/42391/58b2a8b7f629d810d49c7cde.css' rel='stylesheet' type='text/css' />
+
   </head>
+
+  <style>
+    a:link { text-decoration: none;}
+    a:link {color: black} /* 未访问的链接 */
+    a:visited {color: black} /* 已访问的链接 */
+    a:hover {color: gray}
+
+    a.brand:link {color:  #1874CD} /* 未访问的链接 */
+    a.brand:visited {color:  #1874CD} /* 已访问的链接 */
+  </style>
 
   <body>
     <div class="container">
-      <div class="header ">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="{% url 'home' %}" class="home">Home</a></li>
-            <li role="presentation"><a href="{% url 'blog:index' %}" class="home">Blog</a></li>
-            <li role="presentation"><a href="#" class="home">About</a></li>
-          </ul>
-        </nav>
-        <h2 class="text-muted">sshoop</h2>
-      </div>
-      <hr />
-      {% block context %}
+      <div class="row">
+        <div class="col-md-2"></div>
 
-      {% endblock %}
+        <div class="col-md-8">
+          <div class="header ">
+            <nav>
+              <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="{% url 'blog:index' %}" >Blog</a></li>
+                <li role="presentation"><a href="{% url 'blog:archive' %}" >Archive</a></li>
+                <li role="presentation"><a href="{% url 'about' %}" >About</a></li>
+              </ul>
+            </nav>
+            <h2 class="text-muted"   style="font-family:'Superhelioregul91f0c5404182ad';"><a href="{% url 'home' %}" class="brand">sshoop</a></h2>
+          </div>
+          <hr />
 
+
+          {% block context %}
+
+          {% endblock %}
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 ">
+                <p class="copyright text-muted">&nbsp;&nbsp; Copyright &copy;2016-2017 by sshoop</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
     </div>
+  </div>
     <!-- /container -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>  -->
-  </body>
+</body>
 </html>
