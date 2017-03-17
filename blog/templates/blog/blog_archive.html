@@ -14,17 +14,15 @@ a.title:visited {color: black} /* 已访问的链接 */
 a.title:hover {color: black;text-decoration: underline;}
 </style>
 
-<div class="container">
+
     <div class="row">
 
-<div class="col-md-8">
-            <div class="row">
                 {% for category in category_list %}
                     <a class="category" href="{% url 'blog:category' category.id %}">{{ category.category_name }} / </a>
                 {% endfor %}
-            </div>
 
-            <div class="row">
+
+
                 {% for article in article_list %}
 
                 <h5 style="margin-top: 20px;">
@@ -32,28 +30,24 @@ a.title:hover {color: black;text-decoration: underline;}
                         {{ article.article_title }}
                     </a>
                     <span style="float:right;">
-                    {{ article.article_create_time|date:"Y- m- d" }}
+                    {{ article.article_create_time|date:"Y-m-d" }}
                     </span>
 
                 </h5>
 
                 {% endfor %}
-            </div>
+
 
 
             {% if SearchForm %}
             <br /><br /><br /><br />
-            <div class="row">
+
                 <form method="get" action="{% url 'blog:search' %}">
-
                     {{ SearchForm }}
-
-
                 </form>
-            </div>
+
             {% endif %}
-</div>
     </div>
-</div>
+
 
 {% endblock %}

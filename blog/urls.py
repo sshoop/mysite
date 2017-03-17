@@ -13,5 +13,4 @@ urlpatterns = [
     url(r'^date/(?P<year>\d+)/(?P<month>\d+)$', views.DateView.as_view(), name='date'),
     url(r'^search/$', views.SearchView, name='search'),
     url(r'^test/$', views.ArchiveView.as_view(), name='archive'),
-
 ]

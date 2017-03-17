@@ -73,7 +73,7 @@ class ArchiveView(ListView):
 
     def get_queryset(self):
         # 获取数据库中非草稿的数据
-        article_list = Article.objects.all().order_by('-article_create_time')
+        article_list = Article.objects.filter(article_status='p').order_by('-article_create_time')
         """for article in article_list:
             if article.article_change_time.month < 10:
                 article.article_change_time.month = """
@@ -176,6 +176,8 @@ def AboutView(request):
     :return:
     """
     return render(request, 'about.html')
+
+
 
 
 
