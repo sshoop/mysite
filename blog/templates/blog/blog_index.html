@@ -14,7 +14,8 @@ a.test:hover {color: gray}
 
 <!-- 展示博客首页文章 -->
 
-    <div class="row">
+    <div class="row" style="margin-left:1px;margin-right:1px;">
+
             <!--
             <ol class="breadcrumb">
                 {% for category in category_list %}
@@ -24,7 +25,7 @@ a.test:hover {color: gray}
             -->
             {% block article %}
                 {% for article in article_list %}
-                    <h3 class="thick">{{ article.article_title }}</h3>
+                    <h3 >{{ article.article_title }}</h3>
                     <p  class="data">
                         {{ article.article_change_time.year}}年
                         {{ article.article_change_time.month}}月
@@ -40,8 +41,8 @@ a.test:hover {color: gray}
                     <hr />
                 {% endfor %}
             {% endblock %}
-    </div>
 
+    </div>
 
 
         <!--

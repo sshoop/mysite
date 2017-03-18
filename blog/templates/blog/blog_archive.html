@@ -15,13 +15,7 @@ a.title:hover {color: black;text-decoration: underline;}
 </style>
 
 
-    <div class="row">
-
-                {% for category in category_list %}
-                    <a class="category" href="{% url 'blog:category' category.id %}">{{ category.category_name }} / </a>
-                {% endfor %}
-
-
+    <div class="row" style="margin-left:1px;margin-right:1px;">
 
                 {% for article in article_list %}
 
@@ -37,8 +31,7 @@ a.title:hover {color: black;text-decoration: underline;}
 
                 {% endfor %}
 
-
-
+<!--
             {% if SearchForm %}
             <br /><br /><br /><br />
 
@@ -47,7 +40,10 @@ a.title:hover {color: black;text-decoration: underline;}
                 </form>
 
             {% endif %}
+                {% for category in category_list %}
+                    <a class="category" href="{% url 'blog:category' category.id %}">{{ category.category_name }} / </a>
+                {% endfor %}
+-->
     </div>
-
 
 {% endblock %}
