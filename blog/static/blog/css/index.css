@@ -1,0 +1,235 @@
+@font-face {
+    font-family: nav-font-vogue;
+    src: url("../font/Vogue.ttf");
+}
+@font-face {
+    font-family: nav-font-apple;
+    src: url("../font/AppleGaramond-Light.ttf");
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    height: 100%;
+    background-color: #F7F7F7;
+}
+.container {
+    background-color: white;
+}
+.my-header {
+    margin-bottom: 2rem;
+}
+.header-title {
+    max-height: 5rem;
+    min-height: 2rem;
+}
+.logo {
+
+    margin: 0 auto;
+    width: 160px;
+    height: 70px;
+}
+.log ul {
+
+}
+.logo img {
+    width: 3rem;
+    height: 3rem;
+}
+.logo ul .img-li {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.my-header nav {
+    text-align: center;
+    font-family: nav-font-vogue;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    # border-bottom: 2px solid #E8E8E8;
+
+}
+.my-header nav a {
+    color: #72B8EC;
+}
+.my-header nav a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+.my-header ul {
+    font-size: 2rem;
+}
+
+.ge-li {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-right: 0.2rem solid #F23838;
+}
+.sp-li {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+}
+
+
+.my-content {
+
+
+}
+article {
+    padding: 1rem 1rem;
+    margin-bottom: 7rem;
+
+}
+
+article .article-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: black;
+    padding: 0 2rem;
+    letter-spacing: 0.2rem;
+
+}
+article .article-title a {
+    color: black;
+}
+
+article .article-title a:link, a:visited, a:hover a:active {
+    color: black;
+    text-decoration: none;
+}
+article .article-title a:hover {
+    border-bottom: 2px solid #FA8072;
+}
+article .article-abstract {
+    margin-top: 2.5rem;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    letter-spacing: 0.2rem;
+
+}
+article .article-info {
+    text-align: center;
+}
+article .article-info img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1.5rem;
+}
+article .article-info span {
+    color: #bfbfbf;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.my-footer {
+    background-color: black;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.category {
+    margin-left: 30%;
+    max-width: 40%;
+    font-family: nav-font-vogue;
+}
+.category .category-spans {
+    margin-left: 5%;
+}
+.category p {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+.category span{
+    display: inline-block;
+    margin: 0.5rem 1rem;
+    color: rgba(255,255,255,.3);
+}
+.category span:hover {
+    background-color: rgba(255,255,255,.3);
+    color: silver;
+    border-radius: 20%;
+}
+
+.find {
+    margin-left: 30%;
+
+}
+.find p {
+    font-size: 2rem;
+    font-family: nav-font-vogue;
+}
+.find .find-link {
+    margin-left: 5%;
+}
+.find a {
+    text-decoration: none;
+    display: inline-block;
+    color: #4D4D4D;
+    margin-right: 1rem;
+    text-align: center;
+}
+.find i {
+    width: 3rem;
+    height: 3rem;
+    padding-top: 0.4rem;
+    display: block;
+    color: black;
+    background-color: rgba(255,255,255,.3);
+    border-radius: 3rem;
+}
+.find i:hover {
+    border-radius: 0.5rem;
+    color: white;
+    background-color: #CE2323;
+}
+.copyright {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+.copyright p {
+    font-size: 1rem;
+    color: rgba(255,255,255,.3);
+}
+.archives {
+    margin-bottom: 0.4rem;
+}
+.archives-title {
+    font-size: 1.5rem;
+    color: black;
+    border-bottom: 1px dotted gray;
+    text-decoration: none;
+}
+.archives-title:link, .archives-title:visited, .archives-title:hover .archives-title:active {
+    text-decoration: none;
+}
+.archives-title:hover {
+    border-bottom: 0;
+}
+.archives-date {
+    float: right;
+}
+
+.more h2 {
+    margin: 25% 0;
+    font-size: 4rem;
+    text-align: center;
+}
+.article-header {
+    margin-bottom: 5rem;
+}
+.article-header p {
+    text-align: center;
+    font-size: 3rem;
+
+
+}

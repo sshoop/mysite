@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^tag/(?P<tag_id>\d+)$', views.TagView.as_view(), name='tag'),
     url(r'^date/(?P<year>\d+)/(?P<month>\d+)$', views.DateView.as_view(), name='date'),
     url(r'^search/$', views.SearchView, name='search'),
-    url(r'^test/$', views.ArchiveView.as_view(), name='archive'),
+    url(r'^arch/$', views.ArchiveView.as_view(), name='archive'),
+    url(r'^more/$', views.MoreView.as_view(), name='more'),
 ]

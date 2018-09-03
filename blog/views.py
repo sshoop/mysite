@@ -2,19 +2,17 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .models import Article, Category, Tag
-from django.views.generic import ListView, DetailView, FormView
+from django.views.generic import ListView, DetailView, FormView, TemplateView
 from .forms import CommentForm, SearchForm
 import markdown2
 
 # Create your views here.
 
 
-def home(request):
-    """
-        主页视图
-
-    """
-    return render(request, 'home.html')
+def aboutView(request):
+    info = Article.objects.get(article_title='about me')
+    info = markdown2.markdown(info.article_text)
+    return render(request, 'home.html', {'info': info})
 
 
 class IndexView(ListView):
@@ -26,7 +24,7 @@ class IndexView(ListView):
 
     def get_queryset(self):
         # 获取数据库中非草稿的数据
-        article_list = Article.objects.filter(article_index='True', article_status='p').order_by('-article_change_time')
+        article_list = Article.objects.filter(article_index='True', article_status='p').order_by('-article_create_time')
 
         for article in article_list:
             article.article_abstract = markdown2.markdown(article.article_abstract)
@@ -168,14 +166,23 @@ def SearchView(request):
     article_list = Article.objects.filter(article_title__contains=search_name)
     return render(request, 'blog/blog_index.html', {'article_list': article_list})
 
+"""
+def moreView(request):
 
-def AboutView(request):
-    """
-        AoutMe（简历）视图
-    :param request:
-    :return:
-    """
-    return render(request, 'about.html')
+    return render(request, 'blog/blog_more.html')
+"""
+
+
+class MoreView(TemplateView):
+    template_name = 'blog/blog_more.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['category_list'] = Category.objects.all().order_by('category_name')
+        return super(MoreView, self).get_context_data(**kwargs)
+
+
+
+
 
 
 

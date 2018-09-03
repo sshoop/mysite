@@ -1,86 +1,13 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}sshoop{% endblock %}
+{% block title %}sonp{% endblock %}
 
 {% block context %}
-<style type="text/css">
-h3 {text-decoration: underline;text-align: center}
-a:link { text-decoration: none;}
-a:link {color: black} /* 未访问的链接 */
-a:visited {color: black} /* 已访问的链接 */
-a:hover {color: gray}
-</style>
-<link href='//cdn.webfont.youziku.com/webfonts/nomal/98989/46758/58b26355f629d810d49c7cb3.css' rel='stylesheet' type='text/css' />
+
+<link rel="stylesheet" href="{% static 'blog/css/splendor.css' %}">
 
 
-  <div class="row">
-      <div class="text-center">
-          <img src="http://oecyqm8uf.bkt.clouddn.com/image/f.png"   alt="Home" width="324" height="324">
-          <br /><br />
-          <div class="css91dfd4ce6182ad">
-            <h4>
-                print "Hello World"
-            </h4>
-            <h4>
-                printf("Hello World\n");
-            </h4>
-            <h4>
-                cout<<"Hello World"<< endl;
-            </h4>
-            <h4>
-                System.out.println("Hello World");
-            </h4>
-            </div>
-      </div>
-  </div>
-
-  <div class="row">
-      <footer>
-          <div class="text-center">
-              <ul class="list-inline ">&nbsp;&nbsp;
-                  <li>
-                      <a target="_blank" href="https://www.zhihu.com/people/mo-ban-che-46">
-                          <span class="fa-stack fa-lg">
-                              <i class="fa fa-circle fa-stack-2x"></i>
-                              <i class="fa  fa-stack-1x fa-inverse">知</i>
-                          </span>
-                      </a>
-                  </li>
-
-                  <li>
-                      <a target="_blank" href="http://weibo.com/sshoop">
-                          <span class="fa-stack fa-lg">
-                              <i class="fa fa-circle fa-stack-2x"></i>
-                              <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                          </span>
-                      </a>
-                  </li>
-
-                  <li>
-                      <a target="_blank" href="{% static 'blog/images/QRCode.png' %}">
-                          <span class="fa-stack fa-lg">
-                              <i class="fa fa-circle fa-stack-2x"></i>
-                              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
-                          </span>
-                      </a>
-                  </li>
-
-                  <li>
-                      <a target="_blank" href="https://github.com/sshoop">
-                          <span class="fa-stack fa-lg">
-                              <i class="fa fa-circle fa-stack-2x"></i>
-                              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                          </span>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </footer>
-  </div>
-
-
-
-
+            {{ info |safe }}
 
 {% endblock %}
 

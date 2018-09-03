@@ -1,151 +1,36 @@
-{% extends 'base.html' %}
-{% block title %}Blog{% endblock %}
-{% block context %}
+{% extends 'blog/blog_base.html' %}
 {% load staticfiles %}
-<style type="text/css">
-h3.thick {font-weight: bold}
-h5 {color: gray }
-h6 {color: gray }
-p.data {color: gray }
-a.test:link {color:  #1874CD} /* 未访问的链接 */
-a.test:visited {color:  #1874CD} /* 已访问的链接 */
-a.test:hover {color: gray}
-</style>
+{% block context %}
 
-<!-- 展示博客首页文章 -->
+    {% for article in article_list %}
 
-    <div class="row" style="margin-left:1px;margin-right:1px;">
+        <article>
+            <h3 class="article-title">
+                <a href="{% url 'blog:detail' article.pk %}">
+                    {{ article.article_title }}
+                </a>
+            </h3>
 
-            <!--
-            <ol class="breadcrumb">
-                {% for category in category_list %}
-                    <li><a href="{% url 'blog:category' category.id %}">{{ category.category_name }}</a></li>
-                {% endfor %}
-            </ol>
-            -->
-            {% block article %}
-                {% for article in article_list %}
-                    <h3 >{{ article.article_title }}</h3>
-                    <p  class="data">
-                        {{ article.article_change_time.year}}年
-                        {{ article.article_change_time.month}}月
-                        {{ article.article_change_time.day}}日
-                        &nbsp;&nbsp;&nbsp;&nbsp;分类：<a class="test" href="{% url 'blog:category' article.article_category.id %}">{{ article.article_category }}</a>
-                    </p>
-                    <br/>
-                    <h5 class="blog-post-title" >{{ article.article_abstract |safe }}</h5>
+            <div class="article-info">
+                <img src="{% static 'blog/img/date.svg' %}">
+                <span>
+                    {{ article.article_create_time.year}}.
+                    {{ article.article_create_time.month}}.
+                    {{ article.article_create_time.day}}
+                </span>
+                <img src="{% static 'blog/img/category.svg' %}">
+                <a href="{% url 'blog:category' article.article_category.id %}">
+                    <span>{{ article.article_category }}</span>
+                </a>
+             </div>
 
-                    <a class="test" href="{% url 'blog:detail' article.pk %}">
-                        <p class="text-right">Read More>></p>
-                    </a>
-                    <hr />
-                {% endfor %}
-            {% endblock %}
-
-    </div>
-
-
-        <!--
-        <div class="col-md-4">
-
-
-            {% if tag_list %}
-            <div class="row">
-                {% block tag %}
-                <span class="label label-info">Feature Tags:</span>
-                <br/><br/>
-                <ul class="nav nav-pills" role="tablist">
-                    {% for tag in tag_list %}
-                        <li role="presentation">
-                            <a href="{% url 'blog:tag' tag.pk %}" class="sns">{{ tag.tag_name }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-                <br /><br />
-                <hr />
-                {% endblock %}
+            <div class="article-abstract">
+                {{ article.article_abstract |safe }}
             </div>
-            {% endif %}
 
 
-            <h5>About Me</h5>
-            <br />
-            <img src="{% static 'blog/images/me.jpg' %}" class="img-rounded" alt="Home" width="150" height="150">
-            <h6>尘世中迷途的小码农</h6>
-            <h6>我想和这个世界谈谈</h6>
+        </article>
 
-                    <ul class="list-inline">
-                        <li>
-                            <a target="_blank" href="https://www.zhihu.com/people/mo-ban-che-46" class="sns">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a target="_blank" href="http://weibo.com/sshoop" class="sns">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a target="_blank" href="http://weibo.com/sshoop" class="sns">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a target="_blank" href="https://github.com/sshoop" class="sns">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-            <br /><br />
-
-
-            {% if date_archive %}
-            <div class="row">
-                <span class="label label-danger">Time Archive:</span>
-                <br/><br/>
-
-                    {% for year,months in date_archive %}
-                        {% for month in months %}
-                        <div class="col-md-4">
-                            <a href="{% url 'blog:date' year month %}" class="sns">{{ year }} 年{{ month }} 月</a>
-                        </div>
-
-                        {% endfor %}
-                    {% endfor %}
-
-            </div>
-            {% endif %}
-
-            {% if SearchForm %}
-            <br /><br /><br /><br />
-            <div class="row">
-                <form method="get" action="{% url 'blog:search' %}">
-
-                    {{ SearchForm }}
-                    <br /><br /><br /><br /><br />
-                    <p class="text-right">
-                    <button type="submit" class="btn btn-primary">评论</button>
-                    </p>
-
-                </form>
-            </div>
-            {% endif %}
-        </div>
-        -->
+    {% endfor %}
 
 {% endblock %}

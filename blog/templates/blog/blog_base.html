@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sonp</title>
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="script" href="{% static 'blog/js/bootstrap.min.js' %}">
+    <link rel="shortcut icon" href="{% static 'blog/img/zebra.ico' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+
+            <header class="my-header">
+                    <div class="header-title"></div>
+                    <div class="logo">
+                            <ul>
+                                <li class="img-li"><img src="{% static 'blog/img/mlao_1.jpg' %}"> </li>
+                                <li class="img-li"><img src="{% static 'blog/img/atman_1.jpg' %}"> </li>
+                                <li class="img-li"><img src="{% static 'blog/img/atmu_5.jpg' %}"> </li>
+                            </ul>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li class="ge-li"><a href="{% url 'blog:index' %}">Index</a></li>
+
+                            <li class="ge-li"><a href="{% url 'blog:archive' %}">Arch</a></li>
+                            <li class="sp-li"><a href="{% url 'blog:more' %}">More</a></li>
+                        </ul>
+                    </nav>
+
+                </header>
+
+
+
+            <div class="my-content">
+
+                {% block context %}
+                {% endblock %}
+
+            </div>
+
+            <footer class="my-footer">
+                <div class="category">
+                    <p>Category</p>
+                    <div class="category-spans">
+
+                        {% for category in category_list %}
+
+                            <a href="{% url 'blog:category' category.pk %}">
+                                <span>{{ category.category_name }}</span>
+                            </a>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+                <div class="find">
+                    <p>Explore</p>
+                    <div class="find-link">
+                        <a href="#" target="_blank">
+                            <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" target="_blank">
+
+                            <i class="fa fa-weibo fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fa fa-weixin fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fa fa-google fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <!--
+                <div class="copyright">
+                    <p>&nbsp;&nbsp; Copyright &copy;2016-2018 by sshoop</p>
+                </div>
+                -->
+            </footer>
+
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+</body>
+</html>
