@@ -59,6 +59,7 @@ class ArticleDetailView(DetailView):
         # 返回额外的数据 评论列表 评论表单
         kwargs['comment_list'] = self.object.comment_set.all()
         kwargs['form'] = CommentForm()
+        kwargs['category_list'] = Category.objects.all().order_by('category_name')
         return super(ArticleDetailView, self).get_context_data(**kwargs)
 
 
