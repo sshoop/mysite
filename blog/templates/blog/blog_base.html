@@ -21,9 +21,9 @@
                     <div class="header-title"></div>
                     <div class="logo">
                             <ul>
-                                <li class="img-li"><img src="{% static 'blog/img/mlao_1.jpg' %}"> </li>
-                                <li class="img-li"><img src="{% static 'blog/img/atman_1.jpg' %}"> </li>
-                                <li class="img-li"><img src="{% static 'blog/img/atmu_5.jpg' %}"> </li>
+                                <li class="img-li"><img src=http://oecyqm8uf.bkt.clouddn.com/mlao_1.jpg> </li>
+                                <li class="img-li"><img src=http://oecyqm8uf.bkt.clouddn.com/atman_1.jpg> </li>
+                                <li class="img-li"><img src=http://oecyqm8uf.bkt.clouddn.com/atmu_5.jpg> </li>
                             </ul>
                     </div>
                     <nav>
@@ -47,23 +47,8 @@
             </div>
 
             <footer class="my-footer">
-                <div class="category">
-                    <p>Category</p>
-                    <div class="category-spans">
 
-                        {% for category in category_list %}
-
-                            <a href="{% url 'blog:category' category.pk %}">
-                                <span>{{ category.category_name }}</span>
-                            </a>
-
-                        {% endfor %}
-
-                    </div>
-
-                </div>
                 <div class="find">
-                    <p>Explore</p>
                     <div class="find-link">
                         <a href="#" target="_blank">
                             <i class="fa fa-github fa-2x" aria-hidden="true"></i>
@@ -80,11 +65,9 @@
                         </a>
                     </div>
                 </div>
-                <!--
-                <div class="copyright">
-                    <p>&nbsp;&nbsp; Copyright &copy;2016-2018 by sshoop</p>
-                </div>
-                -->
+
+                <p>Copyright © 2016-2018 by sonp</p>
+                <p id="secret">一辈子很短，如白驹过隙，转瞬即逝 ，可这种心情很长，如高山大川，绵延不绝。</p>
             </footer>
 
         </div>

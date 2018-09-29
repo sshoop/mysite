@@ -12,13 +12,11 @@
             </h3>
 
             <div class="article-info">
-                <img src="{% static 'blog/img/date.svg' %}">
+                <img src="{% static 'blog/img/date_3.svg' %}">
                 <span>
-                    {{ article.article_create_time.year}}.
-                    {{ article.article_create_time.month}}.
-                    {{ article.article_create_time.day}}
+                    {{ article.article_create_time.year}}-{{ article.article_create_time.month}}-{{ article.article_create_time.day}}
                 </span>
-                <img src="{% static 'blog/img/category.svg' %}">
+                <img src="{% static 'blog/img/category_3.svg' %}">
                 <a href="{% url 'blog:category' article.article_category.id %}">
                     <span>{{ article.article_category }}</span>
                 </a>
